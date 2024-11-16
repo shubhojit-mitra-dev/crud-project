@@ -15,14 +15,14 @@ const Home = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <NavBar isDashboard={false} />
-      <main className="flex-grow my-16 flex justify-center">
+      <main className="flex-grow my-16 flex justify-center items-center">
         <div className="text-center">
           <h1 className="font-extrabold text-slate font-mono text-3xl sm:text-5xl transition-transform duration-300 hover:scale-105 cursor-default">
             &lt;<span>Listi</span>
             <span className="text-green-500">fy</span>
             &nbsp;/&gt;
           </h1>
-          <h2 className="sm:text-6xl text-4xl font-mono my-10 font-bold transition-transform duration-300 hover:scale-105 cursor-default">
+          <h2 className="sm:text-6xl text-4xl font-mono my-10 font-bold transition-transform duration-300 hover:scale-125 cursor-default">
             <TypeWriter 
               text="<Welcome to my CRUD App />" 
               delay={100} 

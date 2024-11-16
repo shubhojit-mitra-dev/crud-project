@@ -25,7 +25,7 @@ const NavBar = ({ isDashboard }: { isDashboard?: boolean }) => {
           <Loading onLoadingComplete={() => setIsLoading(false)} />
         </div>
       )}
-      <nav className="bg-slate-800 w-full px-10 sm:px-20 lg:px-40 h-16">
+      <nav className="bg-slate-800 sticky top-0 w-full px-10 sm:px-20 lg:px-40 h-16">
         <div className="flex justify-between items-center h-full">
           <Link
             className="text-white font-bold font-mono text-xl sm:text-3xl transition-transform duration-300 hover:scale-110 cursor-pointer"
