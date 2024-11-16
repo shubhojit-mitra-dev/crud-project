@@ -2,6 +2,7 @@
 
 import React, { useEffect } from 'react';
 import Image from 'next/image';
+import mongo from '@/assets/mongodb.svg';
 
 const Loading = ({ onLoadingComplete }: { onLoadingComplete: () => void }) => {
   useEffect(() => {
@@ -18,7 +19,7 @@ const Loading = ({ onLoadingComplete }: { onLoadingComplete: () => void }) => {
         <div className="absolute inset-0 rounded-full bg-green-500/20 animate-ping" />
         <div className="absolute inset-0 rounded-full bg-green-500/40 animate-pulse" />
         <Image 
-          src="/mongodb.svg" 
+          src={mongo}
           alt="MongoDB Logo" 
           width={128} 
           height={128}

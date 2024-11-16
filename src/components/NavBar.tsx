@@ -28,7 +28,7 @@ const NavBar = ({ isDashboard }: { isDashboard?: boolean }) => {
       <nav className="bg-slate-800 w-full px-10 sm:px-20 lg:px-40 h-16">
         <div className="flex justify-between items-center h-full">
           <Link
-            className="text-white font-bold font-mono text-xl sm:text-3xl"
+            className="text-white font-bold font-mono text-xl sm:text-3xl transition-transform duration-300 hover:scale-110 cursor-pointer"
             href="/"
           >
             &lt;<span>Listi</span>
@@ -38,7 +38,7 @@ const NavBar = ({ isDashboard }: { isDashboard?: boolean }) => {
           {!isDashboard && (
             <button
               onClick={handleNavigate}
-              className="text-black text-xs sm:text-base bg-green-500 px-10 py-2 rounded hover:bg-green-800 hover:text-white"
+              className="text-black text-xs sm:text-base bg-green-500 px-10 py-2 rounded hover:bg-green-800 hover:text-white transition-transform duration-300 hover:scale-x-110 cursor-pointer"
             >
               My List
             </button>
