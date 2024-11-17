@@ -14,7 +14,7 @@ const TopicCard: React.FC<TopicCardProps> = ({ id, title, description }) => {
   const router = useRouter();
 
   const handleEdit = () => {
-    router.push(`/my-list/${id}`);
+    router.push(`/my-list/edit/${id}`);
   };
 
   const handleDelete = () => {
