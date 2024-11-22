@@ -10,6 +10,7 @@ import tailwindImage from "@/assets/tailwind.svg";
 import typescriptImage from "@/assets/typescript.svg";
 import mongodbImage from "@/assets/mongodb.svg";
 import vercelImage from "@/assets/vercel.svg";
+import testing from "@/assets/testing.gif";
 
 const Home = () => {
   return (
@@ -45,6 +46,10 @@ const Home = () => {
                 <li className="transition-transform duration-300 hover:scale-125 cursor-pointer"><Image src={mongodbImage} alt="MongoDB" width={50} height={50}/></li>
                 <li className="transition-transform duration-300 hover:scale-125 cursor-pointer"><Image src={vercelImage} alt="Vercel" width={50} height={50}/></li>
               </ul>
+            </div>
+            <div className="p-5 flex gap-5">
+              <Image src={testing} alt="testing" width={30} height={10} />
+              <h1 className="text-2xl font-bold">Testing</h1>
             </div>
           </div>
         </div>

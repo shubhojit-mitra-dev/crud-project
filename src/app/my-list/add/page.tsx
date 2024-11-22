@@ -10,21 +10,38 @@ const Add = () => {
   const router = useRouter();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const newTopic = {
-      title,
-      description,
-      createdAt: new Date()
-    };
-    console.log('Data to be sent to MongoDB:', newTopic);
-    
-    setTitle('');
-    setDescription('');
-    
-    // Redirect to my-list page
-    router.push('/my-list');
+    setIsLoading(true);
+
+    try {
+      const response = await fetch('/api/topics', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          title,
+          description,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to create topic');
+      }
+
+      await response.json();
+      router.push('/my-list');
+      router.refresh();
+      
+    } catch (error) {
+      console.error('Error creating topic:', error);
+      alert('Failed to create topic. Please try again.');
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
@@ -65,9 +82,10 @@ const Add = () => {
             <div className='w-full flex justify-center'>
                 <button 
                 type="submit"
+                disabled={isLoading}
                 className="w-fit px-10 py-3 bg-green-500 hover:text-white rounded-lg hover:bg-green-800 transition-transform duration-300 hover:scale-105 font-medium"
                 >
-                Add Topic
+                {isLoading ? 'Adding...' : 'Add Topic'}
                 </button>
             </div>
           </form>
