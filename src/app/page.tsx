@@ -10,7 +10,6 @@ import tailwindImage from "@/assets/tailwind.svg";
 import typescriptImage from "@/assets/typescript.svg";
 import mongodbImage from "@/assets/mongodb.svg";
 import vercelImage from "@/assets/vercel.svg";
-import testing from "@/assets/testing.gif";
 
 const Home = () => {
   return (
