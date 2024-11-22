@@ -47,10 +47,6 @@ const Home = () => {
                 <li className="transition-transform duration-300 hover:scale-125 cursor-pointer"><Image src={vercelImage} alt="Vercel" width={50} height={50}/></li>
               </ul>
             </div>
-            <div className="p-5 flex gap-5">
-              <Image src={testing} alt="testing" width={30} height={10} />
-              <h1 className="text-2xl font-bold">Testing</h1>
-            </div>
           </div>
         </div>
       </main>
