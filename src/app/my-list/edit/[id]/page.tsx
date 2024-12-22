@@ -7,19 +7,21 @@ import Link from 'next/link';
 import Footer from '@/components/Footer';
 
 interface PageProps {
-  params: { id: string }
-}
+    params: Promise<{ id: string }>;
+  }
 
-const EditTopic = ({ params }: PageProps) => {  // Removed async
+export default function EditTopic ({ params }: PageProps) {  // Removed async
   const router = useRouter();
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [isLoading, setIsLoading] = useState(false);
 
+  const { id } = React.use(params);
+
   useEffect(() => {
     const fetchTopic = async () => {
       try {
-        const response = await fetch(`/api/topics/${params.id}`);
+        const response = await fetch(`/api/topics/${id}`);
         if (!response.ok) {
           throw new Error('Failed to fetch topic');
         }
@@ -33,14 +35,14 @@ const EditTopic = ({ params }: PageProps) => {  // Removed async
     };
 
     fetchTopic();
-  }, [params.id]);
+  }, [id]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
 
     try {
-      const response = await fetch(`/api/topics/${params.id}`, {
+      const response = await fetch(`/api/topics/${id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -86,7 +88,7 @@ const EditTopic = ({ params }: PageProps) => {  // Removed async
                 required
               />
             </div>
-            
+
             <div className="space-y-2">
               <label htmlFor="description" className="block text-sm font-medium text-gray-700">
                 Topic Description
@@ -101,7 +103,7 @@ const EditTopic = ({ params }: PageProps) => {  // Removed async
               />
             </div>
             <div className='w-full flex justify-center'>
-              <button 
+              <button
                 type="submit"
                 disabled={isLoading}
                 className={`w-fit px-10 py-3 bg-green-500 rounded-lg transition-all duration-300 hover:scale-105 font-medium ${
@@ -123,5 +125,3 @@ const EditTopic = ({ params }: PageProps) => {  // Removed async
     </div>
   );
 };
-
-export default EditTopic;
