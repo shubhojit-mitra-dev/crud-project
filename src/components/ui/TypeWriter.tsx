@@ -8,10 +8,10 @@ interface TypeWriterProps {
   pauseTime?: number;
 }
 
-const TypeWriter: React.FC<TypeWriterProps> = ({ 
-  text, 
+const TypeWriter: React.FC<TypeWriterProps> = ({
+  text,
   delay = 100,
-  pauseTime = 2000 
+  pauseTime = 2000
 }) => {
   const [currentText, setCurrentText] = useState('');
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -48,16 +48,16 @@ const TypeWriter: React.FC<TypeWriterProps> = ({
         setCurrentIndex(0);
       }
     }
-  }, [currentIndex, delay, text, currentText, isTyping, isPaused]);
+  }, [currentIndex, delay, text, currentText, isTyping, isPaused, pauseTime]);
 
   return (
     <span className="inline-block">
       {currentText}
-      <span 
+      <span
         className={`inline-block w-[2px] h-[1.2em] bg-current ml-1 ${
           isPaused ? 'animate-blink' : ''
         }`}
-        style={{ 
+        style={{
           verticalAlign: 'middle',
           animation: isPaused ? 'blink 1s step-end infinite' : 'none'
         }}
